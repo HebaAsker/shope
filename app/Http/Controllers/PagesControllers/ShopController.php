@@ -11,8 +11,8 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $category=Category::all(); //to show all categories in header
-        $product=Product::all();
+        $category=Category::paginate(20); //to show some categories in header
+        $product=Product::paginate(20);
         $popular_product=Product::where('trending','1')->take(6)->get();
         return view('pages.shop',compact('product','popular_product','category'));
     }

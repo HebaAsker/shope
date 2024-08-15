@@ -14,7 +14,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $category=Category::all(); //to show all categories in header
+        $category=Category::paginate(20); //to show some categories in header
         $cartItems=Cart::where('user_id',Auth::id())->get(); // this line return collection
         return view('pages.cart',compact('cartItems','category'));
     }

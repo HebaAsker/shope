@@ -11,8 +11,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $product=Product::all();
-        $category=Category::all();
+        $product=Product::paginate(20);
+        $category=Category::paginate(20);
         $latest_product=Product::where('trending','1')->take(15)->get();
         return view('pages.home',compact('product','category','latest_product'));
     }
@@ -31,7 +31,7 @@ class HomeController extends Controller
 
     public function viewCategory()
     {
-        $category=Category::all();
+        $category=Category::paginate(20);
         return view('layouts.header',compact('category'));
     }
 }

@@ -119,9 +119,11 @@
                                             <a href="#" class="link-control">All Category</a>
                                             <ul class="list-cate">
                                                 <li class="level-0">All Category</li>
-                                                @foreach ($category as $cat)
-                                                    <li >{{ $cat->name }}</li>
-                                                @endforeach
+                                                @if(@isset($category))
+                                                    @foreach ($category as $cat)
+                                                        <li >{{ $cat->name }}</li>
+                                                    @endforeach
+                                                @endif
                                             </ul>
                                         </div>
                                     </form>

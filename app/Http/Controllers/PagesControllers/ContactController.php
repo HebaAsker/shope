@@ -11,9 +11,11 @@ class ContactController extends Controller
 {
     public function viewContactPage()
     {
-        $category=Category::all(); //to show all categories in header
+        $category=Category::paginate(20); //to show all categories in header
         return view('pages.contact',compact('category'));
     }
+
+
     public function contact(Request $request) {
 
         $this->validate($request, [
